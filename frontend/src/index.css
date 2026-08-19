@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@100..800&family=Space+Grotesk:wght@300..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Sora:wght@100..800&family=Space+Grotesk:wght@300..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@1,14..32,700&family=Rubik+Spray+Paint&display=swap');
+@import "tailwindcss";
+
+:root {
+  /* Brand */
+  --color-primary: #A0307A;
+  --color-primary-dark: #77ACC7;
+
+  /* Light Theme */
+  --color-background: #FFFDFB;
+  --color-surface: #FFFFFF;
+  --color-elevated: #FFF9F5;
+  --color-foreground: #1D1620;
+  --color-muted: #7C7480;
+  --color-border: #F7ECE6;
+  --color-primary-soft: #FFF0EB;
+
+  /* Fonts */
+  --font-logo: "Rubik Spray Paint", cursive;
+  --font-primary: "Space Grotesk", sans-serif;
+  --font-sora: "Sora", sans-serif;
+  --font-outfit: "Outfit", sans-serif;
+}
+
+.dark {
+  /* Dark Theme Overrides */
+  --color-background: #09090b;
+  --color-surface: #141417;
+  --color-elevated: #1e1e24;
+  --color-foreground: #F4F4F5;
+  --color-muted: #A1A1AA;
+  --color-border: #27272A;
+  --color-primary-soft: #2e1408;
+}
+
+@theme {
+  --color-primary: var(--color-primary);
+  --color-primary-dark: var(--color-primary-dark);
+  --color-background: var(--color-background);
+  --color-surface: var(--color-surface);
+  --color-elevated: var(--color-elevated);
+  --color-foreground: var(--color-foreground);
+  --color-muted: var(--color-muted);
+  --color-border: var(--color-border);
+  --color-primary-soft: var(--color-primary-soft);
+
+  --font-logo: var(--font-logo);
+  --font-primary: var(--font-primary);
+  --font-sora: var(--font-sora);
+  --font-outfit: var(--font-outfit);
+}
