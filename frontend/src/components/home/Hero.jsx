@@ -6,6 +6,7 @@ import { Zap, ArrowDown, Layers, Sparkles, Users, Presentation, Move } from "luc
 import { FlipButton } from "../ui/btn";
 import Aurora from "../ui/Aurora";
 import RotatingText from "../ui/RotatingText";
+import Carousel from "../ui/Carousel";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -142,120 +143,107 @@ const Hero = () => {
             <h1 className="font-primary text-5xl sm:text-7xl md:text-9xl lg:text-[10.5rem] font-black tracking-tighter text-white uppercase leading-none mt-1 drop-shadow-md">
               FLOD
             </h1>
-
-            {/* Center Draggable Presentation Slide Cards powered by Framer Motion */}
+                     {/* Center Draggable Presentation Slide Cards powered by 3D Carousel */}
             <div
               ref={cardsContainerRef}
-              className="relative my-2 flex items-center justify-center h-40 sm:h-56 md:h-64 w-full max-w-xs sm:max-w-md md:max-w-xl select-none overflow-hidden"
+              className="relative my-2 flex flex-col items-center justify-center w-full max-w-sm sm:max-w-md select-none overflow-visible"
             >
-              <div className="absolute top-0 z-30 text-[9px] sm:text-[10px] uppercase font-mono tracking-widest text-white/90 flex items-center gap-1.5 bg-white/20 backdrop-blur-md px-2.5 py-0.5 rounded-full border border-white/20">
-                <Move className="h-3 w-3 text-white" />
-                <span>DRAG CARDS TO EXPLORE</span>
-              </div>
 
-              {/* Card 1 - Framer Motion Draggable */}
-              <motion.div
-                drag
-                dragConstraints={cardsContainerRef}
-                dragElastic={0.2}
-                whileHover={{ scale: 1.05, zIndex: 40 }}
-                whileTap={{ scale: 1.02 }}
-                className="absolute w-28 sm:w-44 md:w-56 h-24 sm:h-34 md:h-44 rounded-xl sm:rounded-2xl bg-zinc-900 border border-white/20 shadow-2xl -rotate-12 -translate-x-12 sm:-translate-x-20 flex flex-col justify-between p-3 sm:p-4 cursor-grab active:cursor-grabbing backdrop-blur-md"
-              >
-                <div className="flex items-center justify-between">
-                  <Presentation className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-primary" />
-                  <span className="text-[9px] sm:text-[10px] font-mono bg-white/10 px-1.5 py-0.5 rounded text-white/80">
-                    SLIDE 01
-                  </span>
-                </div>
-                <div className="space-y-1 text-left">
-                  <div className="h-1.5 sm:h-2 w-3/4 bg-white/90 rounded" />
-                  <div className="h-1 sm:h-1.5 w-1/2 bg-white/40 rounded" />
-                </div>
-                <div className="text-[9px] sm:text-[10px] font-mono text-white/50 text-left">
-                  AI SLIDE DECK
-                </div>
-              </motion.div>
-
-              {/* Card 2 - Framer Motion Draggable */}
-              <motion.div
-                drag
-                dragConstraints={cardsContainerRef}
-                dragElastic={0.2}
-                whileHover={{ scale: 1.05, zIndex: 40 }}
-                whileTap={{ scale: 1.02 }}
-                className="absolute w-28 sm:w-44 md:w-56 h-24 sm:h-34 md:h-44 rounded-xl sm:rounded-2xl bg-white text-zinc-900 shadow-2xl -rotate-4 -translate-x-3 sm:-translate-x-6 flex flex-col justify-between p-3 sm:p-4 border border-zinc-200 cursor-grab active:cursor-grabbing"
-              >
-                <div className="flex items-center justify-between">
-                  <Sparkles className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-primary" />
-                  <span className="text-[9px] sm:text-[10px] font-mono bg-primary/10 text-primary px-1.5 py-0.5 rounded font-bold">
-                    AI AGENT
-                  </span>
-                </div>
-                <div className="bg-primary/5 p-1.5 sm:p-2 rounded-lg border border-primary/20 text-left">
-                  <p className="text-[8px] sm:text-[10px] font-bold text-primary uppercase tracking-wider">
-                    SPEAKER NOTES
-                  </p>
-                </div>
-                <div className="text-[9px] sm:text-[10px] font-mono text-zinc-400 text-left">
-                  AUTO GENERATED
-                </div>
-              </motion.div>
-
-              {/* Card 3 - Framer Motion Draggable */}
-              <motion.div
-                drag
-                dragConstraints={cardsContainerRef}
-                dragElastic={0.2}
-                whileHover={{ scale: 1.05, zIndex: 40 }}
-                whileTap={{ scale: 1.02 }}
-                className="absolute w-28 sm:w-44 md:w-56 h-24 sm:h-34 md:h-44 rounded-xl sm:rounded-2xl bg-gradient-to-br from-amber-400 to-orange-600 text-white shadow-2xl rotate-6 translate-x-4 sm:translate-x-8 flex flex-col justify-between p-3 sm:p-4 border border-white/30 cursor-grab active:cursor-grabbing"
-              >
-                <div className="flex items-center justify-between">
-                  <Users className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-white" />
-                  <span className="text-[9px] sm:text-[10px] font-mono bg-white/20 px-1.5 py-0.5 rounded text-white font-bold">
-                    LIVE SYNC
-                  </span>
-                </div>
-                <div className="flex items-center gap-1">
-                  <div className="h-5 w-5 sm:h-6 sm:w-6 rounded-full bg-white text-primary flex items-center justify-center text-[10px] font-bold shadow">
-                    A
-                  </div>
-                  <div className="h-5 w-5 sm:h-6 sm:w-6 rounded-full bg-zinc-900 text-white flex items-center justify-center text-[10px] font-bold shadow">
-                    B
-                  </div>
-                  <span className="text-[9px] sm:text-[10px] font-medium text-white/90">2 EDITING</span>
-                </div>
-                <div className="text-[9px] sm:text-[10px] font-mono text-white/80 text-left">
-                  SUB-MS LATENCY
-                </div>
-              </motion.div>
-
-              {/* Card 4 - Framer Motion Draggable */}
-              <motion.div
-                drag
-                dragConstraints={cardsContainerRef}
-                dragElastic={0.2}
-                whileHover={{ scale: 1.05, zIndex: 40 }}
-                whileTap={{ scale: 1.02 }}
-                className="absolute w-28 sm:w-44 md:w-56 h-24 sm:h-34 md:h-44 rounded-xl sm:rounded-2xl bg-zinc-950 text-white border border-white/20 shadow-2xl rotate-12 translate-x-12 sm:translate-x-20 flex flex-col justify-between p-3 sm:p-4 cursor-grab active:cursor-grabbing"
-              >
-                <div className="flex items-center justify-between">
-                  <Layers className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-orange-400" />
-                  <Zap className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-amber-400 animate-pulse" />
-                </div>
-                <div className="text-left space-y-0.5">
-                  <p className="text-[10px] sm:text-xs font-bold text-white uppercase">
-                    FLUID WORKFLOW
-                  </p>
-                  <p className="text-[8px] sm:text-[10px] font-mono text-white/60">
-                    EVERY CHANGE INSTANT
-                  </p>
-                </div>
-                <div className="text-[9px] sm:text-[10px] font-mono text-orange-400 text-left">
-                  CONNECTED
-                </div>
-              </motion.div>
+              <Carousel
+                baseWidth={280}
+                autoplay={true}
+                autoplayDelay={3000}
+                pauseOnHover={true}
+                loop={true}
+                round={false}
+                items={[
+                  {
+                    id: 1,
+                    content: (
+                      <div className="w-full h-32 sm:h-36 rounded-2xl bg-zinc-900 border border-white/20 shadow-2xl flex flex-col justify-between p-3.5 sm:p-4 text-left backdrop-blur-md">
+                        <div className="flex items-center justify-between">
+                          <Presentation className="h-4 w-4 text-primary" />
+                          <span className="text-[9px] sm:text-[10px] font-mono bg-white/10 px-2 py-0.5 rounded text-white/80">
+                            SLIDE 01
+                          </span>
+                        </div>
+                        <div className="space-y-1.5 my-1">
+                          <div className="h-2 w-3/4 bg-white/90 rounded" />
+                          <div className="h-1.5 w-1/2 bg-white/40 rounded" />
+                        </div>
+                        <div className="text-[9px] sm:text-[10px] font-mono text-white/50">
+                          AI SLIDE DECK
+                        </div>
+                      </div>
+                    )
+                  },
+                  {
+                    id: 2,
+                    content: (
+                      <div className="w-full h-32 sm:h-36 rounded-2xl bg-white text-zinc-900 shadow-2xl flex flex-col justify-between p-3.5 sm:p-4 border border-zinc-200 text-left">
+                        <div className="flex items-center justify-between">
+                          <Sparkles className="h-4 w-4 text-primary" />
+                          <span className="text-[9px] sm:text-[10px] font-mono bg-primary/10 text-primary px-2 py-0.5 rounded font-bold">
+                            AI AGENT
+                          </span>
+                        </div>
+                        <div className="bg-primary/5 p-1.5 rounded-lg border border-primary/20">
+                          <p className="text-[9px] font-bold text-primary uppercase tracking-wider">
+                            SPEAKER NOTES
+                          </p>
+                        </div>
+                        <div className="text-[9px] sm:text-[10px] font-mono text-zinc-400">
+                          AUTO GENERATED
+                        </div>
+                      </div>
+                    )
+                  },
+                  {
+                    id: 3,
+                    content: (
+                      <div className="w-full h-32 sm:h-36 rounded-2xl bg-gradient-to-br from-amber-400 to-orange-600 text-white shadow-2xl flex flex-col justify-between p-3.5 sm:p-4 border border-white/30 text-left">
+                        <div className="flex items-center justify-between">
+                          <Users className="h-4 w-4 text-white" />
+                          <span className="text-[9px] sm:text-[10px] font-mono bg-white/20 px-2 py-0.5 rounded text-white font-bold">
+                            LIVE SYNC
+                          </span>
+                        </div>
+                        <div className="flex items-center gap-1.5">
+                          <div className="h-5 w-5 rounded-full bg-white text-primary flex items-center justify-center text-[10px] font-bold shadow">
+                            A
+                          </div>
+                          <div className="h-5 w-5 rounded-full bg-zinc-900 text-white flex items-center justify-center text-[10px] font-bold shadow">
+                            B
+                          </div>
+                          <span className="text-[9px] sm:text-[10px] font-medium text-white/90">2 EDITING</span>
+                        </div>
+                        <div className="text-[9px] sm:text-[10px] font-mono text-white/80">
+                          SUB-MS LATENCY
+                        </div>
+                      </div>
+                    )
+                  },
+                  {
+                    id: 4,
+                    content: (
+                      <div className="w-full h-32 sm:h-36 rounded-2xl bg-zinc-950 text-white border border-white/20 shadow-2xl flex flex-col justify-between p-3.5 sm:p-4 text-left">
+                        <div className="flex items-center justify-between">
+                          <Layers className="h-4 w-4 text-orange-400" />
+                          <Zap className="h-4 w-4 text-amber-400 animate-pulse" />
+                        </div>
+                        <div className="space-y-0.5">
+                          <p className="text-[10px] sm:text-xs font-bold text-white uppercase">
+                            FLUID WORKFLOW
+                          </p>
+                          <p className="text-[9px] font-mono text-white/60">
+                            EVERY CHANGE INSTANT
+                          </p>
+                        </div>
+                      </div>
+                    )
+                  }
+                ]}
+              />
             </div>
 
             {/* Bottom Subtitle Headline */}
