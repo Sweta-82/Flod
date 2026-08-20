@@ -1,6 +1,7 @@
 import { Search, Bell, Moon, Sun, Plus, Menu, X } from "lucide-react";
 import gsap from "gsap";
 import { useLayoutEffect, useRef, useState } from "react";
+import Button from "../ui/btn";
 
 const NavBar = ({ mode = "light", setMode = () => {} }) => {
   const navRef = useRef(null);
@@ -176,12 +177,13 @@ const NavBar = ({ mode = "light", setMode = () => {} }) => {
           </button>
 
           {/* Create Button */}
-          <button
-            className="nav-action relative z-10 flex shrink-0 items-center gap-1 sm:gap-1.5 rounded-full bg-primary px-3 py-1.5 sm:px-4 sm:py-2 text-xs sm:text-sm font-medium text-white transition hover:bg-primary-dark cursor-pointer shadow-sm"
+          <Button
+            icon={Plus}
+            variant="primary"
+            className="nav-action !rounded-full !py-1.5 !px-4 !text-xs font-semibold shadow-sm"
           >
-            <Plus size={15} />
-            <span>Create</span>
-          </button>
+            Create
+          </Button>
 
           {/* Mobile Hamburger Menu Toggle */}
           <button

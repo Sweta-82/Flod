@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Play, Share2, Sparkles, Copy, Check, Eye, Lock, Layers } from "lucide-react";
+import Button from "../ui/btn";
 
 const DeckShowcaseSection = () => {
   const [copied, setCopied] = useState(false);
@@ -34,15 +35,13 @@ const DeckShowcaseSection = () => {
             </div>
 
             <div className="flex items-center gap-2">
-              <button className="flex items-center gap-2 px-4 py-2 text-xs font-semibold uppercase tracking-wider rounded-full border border-border text-foreground hover:bg-muted/10 transition cursor-pointer">
-                <Play className="h-3.5 w-3.5" />
-                <span>Present</span>
-              </button>
+              <Button icon={Play} variant="secondary" className="!rounded-full !py-2 !px-4">
+                Present
+              </Button>
 
-              <button className="flex items-center gap-2 px-4 py-2 text-xs font-semibold uppercase tracking-wider rounded-full bg-primary text-white hover:bg-primary-dark transition shadow-sm cursor-pointer">
-                <Share2 className="h-3.5 w-3.5" />
-                <span>Share</span>
-              </button>
+              <Button icon={Share2} variant="primary" className="!rounded-full !py-2 !px-4 shadow-sm">
+                Share
+              </Button>
             </div>
           </div>
 

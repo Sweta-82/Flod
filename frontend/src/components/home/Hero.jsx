@@ -4,6 +4,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { motion } from "framer-motion";
 import { Zap, ArrowDown, Layers, Sparkles, Users, Presentation, Move } from "lucide-react";
 import { FlipButton } from "../ui/btn";
+import Aurora from "../ui/Aurora";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -62,6 +63,7 @@ const Hero = () => {
         innerContentRef.current,
         {
           opacity: 0,
+          pointerEvents: "none",
           ease: "power1.inOut",
           duration: 0.2,
         },
@@ -77,6 +79,7 @@ const Hero = () => {
           borderRadius: "999px",
           boxShadow: "0 0 25px rgba(160, 48, 122, 0.9)",
           opacity: 0.85,
+          pointerEvents: "none",
           ease: "power2.inOut",
           duration: 0.5,
         },
@@ -98,10 +101,20 @@ const Hero = () => {
           ref={topDivRef}
           className="relative md:absolute inset-0 z-20 w-full h-full bg-primary text-white shadow-2xl flex flex-col items-center justify-between p-4 sm:p-6 md:p-10 text-center border-none transform-origin-center overflow-hidden rounded-3xl md:rounded-none"
         >
+          {/* WebGL Aurora Background Effect */}
+          <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
+            <Aurora
+              colorStops={["#341539", "#A0307A", "#C084FC"]}
+              blend={0.5}
+              amplitude={1.0}
+              speed={1}
+            />
+          </div>
+
           {/* Full Screen Inner Content */}
           <div
             ref={innerContentRef}
-            className="flex flex-col items-center justify-between h-full w-full max-w-6xl mx-auto py-2 space-y-4 md:space-y-0"
+            className="relative z-10 flex flex-col items-center justify-between h-full w-full max-w-6xl mx-auto py-2 space-y-4 md:space-y-0"
           >
             {/* Top Tagline */}
             <div className="flex items-center gap-2 text-white/80 font-mono text-[10px] sm:text-xs uppercase tracking-widest font-semibold">
@@ -248,7 +261,7 @@ const Hero = () => {
             </div>
           </div>
         </div>        {/* Hero Text Section in BACK - Completely Clear & Uncluttered */}
-        <div className="relative w-full z-10 max-w-7xl mx-auto px-4 sm:px-8 py-12 md:py-16">
+        <div className="relative w-full z-30 max-w-7xl mx-auto px-4 sm:px-8 py-12 md:py-16">
           <div className="grid md:grid-cols-2 gap-12 lg:gap-36 items-center relative w-full">
             {/* Left: PRESENT */}
             <div ref={leftDivRef} className="flex flex-col gap-4 text-left items-start">
