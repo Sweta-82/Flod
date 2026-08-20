@@ -2,19 +2,21 @@ import { useEffect, useRef, useMemo } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-gsap.registerPlugin(ScrollTrigger);
+if (typeof window !== 'undefined') {
+  gsap.registerPlugin(ScrollTrigger);
+}
 
 const ScrollReveal = ({
   children,
   scrollContainerRef,
   enableBlur = true,
-  baseOpacity = 0.15,
+  baseOpacity = 0.2,
   baseRotation = 2,
   blurStrength = 4,
   containerClassName = '',
   textClassName = '',
-  rotationEnd = 'bottom 80%',
-  wordAnimationEnd = 'bottom 60%'
+  rotationEnd = 'top 50%',
+  wordAnimationEnd = 'top 35%'
 }) => {
   const containerRef = useRef(null);
 
@@ -46,52 +48,43 @@ const ScrollReveal = ({
         scrollTrigger: {
           trigger: el,
           scroller,
-          start: 'top bottom',
+          start: 'top 90%',
           end: rotationEnd,
-          scrub: true
+          scrub: 1
         }
       }
     );
     if (rotTween.scrollTrigger) createdTriggers.push(rotTween.scrollTrigger);
 
     const wordElements = el.querySelectorAll('.word');
-
-    const opTween = gsap.fromTo(
-      wordElements,
-      { opacity: baseOpacity, willChange: 'opacity' },
-      {
+    if (wordElements.length > 0) {
+      const tweenProps = {
         ease: 'none',
         opacity: 1,
         stagger: 0.05,
         scrollTrigger: {
           trigger: el,
           scroller,
-          start: 'top bottom-=15%',
+          start: 'top 85%',
           end: wordAnimationEnd,
-          scrub: true
+          scrub: 1
         }
-      }
-    );
-    if (opTween.scrollTrigger) createdTriggers.push(opTween.scrollTrigger);
+      };
 
-    if (enableBlur) {
-      const blurTween = gsap.fromTo(
+      if (enableBlur) {
+        tweenProps.filter = 'blur(0px)';
+      }
+
+      const mainTween = gsap.fromTo(
         wordElements,
-        { filter: `blur(${blurStrength}px)` },
         {
-          ease: 'none',
-          filter: 'blur(0px)',
-          stagger: 0.05,
-          scrollTrigger: {
-            trigger: el,
-            scroller,
-            start: 'top bottom-=15%',
-            end: wordAnimationEnd,
-            scrub: true
-          }
-        }
+          opacity: baseOpacity,
+          willChange: 'opacity, filter',
+          ...(enableBlur ? { filter: `blur(${blurStrength}px)` } : {})
+        },
+        tweenProps
       );
-      if (blurTween.scrollTrigger) createdTriggers.push(blurTween.scrollTrigger);
+      if (mainTween.scrollTrigger) createdTriggers.push(mainTween.scrollTrigger);
     }
 
     return () => {

@@ -7,6 +7,7 @@ import { FlipButton } from "../ui/btn";
 import Aurora from "../ui/Aurora";
 import RotatingText from "../ui/RotatingText";
 import Carousel from "../ui/Carousel";
+import StrokeText from "../ui/StrokeText";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -139,10 +140,25 @@ const Hero = () => {
               />
             </div>
 
-            {/* Top Main Title: FLOD */}
-            <h1 className="font-primary text-5xl sm:text-7xl md:text-9xl lg:text-[10.5rem] font-black tracking-tighter text-white uppercase leading-none mt-1 drop-shadow-md">
-              FLOD
-            </h1>
+            {/* Top Main Title: FLOD with Stroke Text Effect */}
+            <div className="w-full max-w-xl mx-auto flex items-center justify-center my-1">
+              <StrokeText
+                text="FLOD"
+                strokeColor="#E9D5FF"
+                fillColor="#FFFFFF"
+                strokeWidth={2.5}
+                drawDuration={1.4}
+                fillDelay={0.15}
+                stagger={0.08}
+                ease="power2.out"
+                trigger="mount"
+                fillMode="wipe"
+                fontSize={120}
+                fontWeight={900}
+                letterSpacing={-4}
+                className="font-primary drop-shadow-2xl"
+              />
+            </div>
                      {/* Center Draggable Presentation Slide Cards powered by 3D Carousel */}
             <div
               ref={cardsContainerRef}
