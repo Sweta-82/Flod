@@ -55,7 +55,7 @@ const FeaturesSection = () => {
             return (
               <div
                 key={idx}
-                className="p-6 md:p-8 rounded-3xl bg-surface border border-border/80 hover:border-primary/40 transition shadow-sm space-y-4 flex flex-col justify-between"
+                className="cursor-target p-6 md:p-8 rounded-3xl bg-surface border border-border/80 hover:border-primary/40 transition shadow-sm space-y-4 flex flex-col justify-between"
               >
                 <div className="h-10 w-10 rounded-2xl bg-primary/10 text-primary flex items-center justify-center shrink-0">
                   <Icon className="h-5 w-5" />

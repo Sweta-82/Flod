@@ -1,30 +1,50 @@
-import { useEffect, useState } from "react";
+import { useLayoutEffect, useState } from "react";
 import NavBar from "./components/layout/NavBar";
 import Hero from "./components/home/Hero";
 import DeckShowcaseSection from "./components/home/DeckShowcaseSection";
 import FeaturesSection from "./components/home/FeaturesSection";
+import TargetCursorSection from "./components/home/TargetCursorSection";
 import AnalyticsSection from "./components/home/AnalyticsSection";
 import WorkFollowsSection from "./components/home/WorkFollowsSection";
 import ActionsSection from "./components/home/ActionsSection";
 import Footer from "./components/layout/Footer";
+import TargetCursor from "./components/ui/TargetCursor";
+import Noise from "./components/ui/Noise";
 
 const App = () => {
-  const [mode, setMode] = useState("light");
+  const [mode, setMode] = useState(() => {
+    if (typeof window !== "undefined") {
+      const savedMode = localStorage.getItem("flod_theme");
+      if (savedMode) return savedMode;
+    }
+    return "dark";
+  });
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (mode === "dark") {
       document.documentElement.classList.add("dark");
     } else {
       document.documentElement.classList.remove("dark");
     }
+    localStorage.setItem("flod_theme", mode);
   }, [mode]);
 
   return (
-    <div className="min-h-screen bg-background text-foreground transition-colors duration-300">
+    <div className="min-h-screen bg-background text-foreground transition-colors duration-300 relative">
+      <Noise mode={mode} patternAlpha={15} patternRefreshInterval={3} />
+      <TargetCursor 
+        spinDuration={2}
+        hideDefaultCursor
+        parallaxOn
+        hoverDuration={0.2}
+        cursorColor="#A0307A"
+        cursorColorOnTarget="#B497CF"
+      />
       <NavBar mode={mode} setMode={setMode} />
       <Hero />
       <DeckShowcaseSection />
       <FeaturesSection />
+      <TargetCursorSection />
       <AnalyticsSection />
       <WorkFollowsSection />
       <ActionsSection />

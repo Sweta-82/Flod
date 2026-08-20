@@ -16,21 +16,21 @@ const AnalyticsSection = () => {
 
           {/* Stats Row */}
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-2">
-            <div className="p-5 rounded-2xl bg-elevated/60 border border-border/60 space-y-1">
+            <div className="cursor-target p-5 rounded-2xl bg-elevated/60 border border-border/60 space-y-1">
               <span className="font-primary text-3xl md:text-4xl font-black text-foreground tracking-tight">
                 128
               </span>
               <p className="text-xs font-semibold text-muted uppercase tracking-wider">Views</p>
             </div>
 
-            <div className="p-5 rounded-2xl bg-elevated/60 border border-border/60 space-y-1">
+            <div className="cursor-target p-5 rounded-2xl bg-elevated/60 border border-border/60 space-y-1">
               <span className="font-primary text-3xl md:text-4xl font-black text-foreground tracking-tight">
                 84
               </span>
               <p className="text-xs font-semibold text-muted uppercase tracking-wider">Unique viewers</p>
             </div>
 
-            <div className="p-5 rounded-2xl bg-elevated/60 border border-border/60 space-y-1">
+            <div className="cursor-target p-5 rounded-2xl bg-elevated/60 border border-border/60 space-y-1">
               <span className="font-primary text-3xl md:text-4xl font-black text-foreground tracking-tight">
                 4m 32s
               </span>
