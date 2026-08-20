@@ -3,6 +3,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { motion } from "framer-motion";
 import { Zap, ArrowDown, Layers, Sparkles, Users, Presentation, Move } from "lucide-react";
+import { FlipButton } from "../ui/btn";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -246,13 +247,11 @@ const Hero = () => {
               <ArrowDown className="h-3.5 w-3.5 animate-bounce" />
             </div>
           </div>
-        </div>
-
-        {/* Hero Text Section in BACK - Completely Clear & Uncluttered (Hidden on small screens under pinned div, visible on scrub) */}
-        <div className="hidden md:block relative w-full z-10 max-w-7xl mx-auto px-4 sm:px-8 py-12">
+        </div>        {/* Hero Text Section in BACK - Completely Clear & Uncluttered */}
+        <div className="relative w-full z-10 max-w-7xl mx-auto px-4 sm:px-8 py-12 md:py-16">
           <div className="grid md:grid-cols-2 gap-12 lg:gap-36 items-center relative w-full">
             {/* Left: PRESENT */}
-            <div ref={leftDivRef} className="flex flex-col gap-4 text-left">
+            <div ref={leftDivRef} className="flex flex-col gap-4 text-left items-start">
               <h1 className="font-primary text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black tracking-tighter text-primary uppercase leading-none">
                 PRESENT
               </h1>
@@ -262,6 +261,14 @@ const Hero = () => {
                 SUMMARIZE CONTENT, GENERATE SPEAKER NOTES, AND PREPARE
                 INTERACTIVE QUESTIONS BEFORE YOU STEP INTO THE ROOM.
               </p>
+
+              <div className="pt-2">
+                <FlipButton
+                  href="#present"
+                  frontText="START PRESENTING"
+                  backText="LAUNCH SLIDES"
+                />
+              </div>
             </div>
 
             {/* Right: COLLABORATE */}
@@ -278,6 +285,14 @@ const Hero = () => {
                 SYNCED. BUILT FOR MODERN TEAMS THAT DEMAND VELOCITY,
                 SILENT EFFICIENCY, AND FLUID CONTROL.
               </p>
+
+              <div className="pt-2">
+                <FlipButton
+                  href="#collaborate"
+                  frontText="START COLLABORATING"
+                  backText="JOIN WORKSPACE"
+                />
+              </div>
             </div>
           </div>
         </div>
