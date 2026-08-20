@@ -3,7 +3,6 @@ import NavBar from "./components/layout/NavBar";
 import Hero from "./components/home/Hero";
 import DeckShowcaseSection from "./components/home/DeckShowcaseSection";
 import FeaturesSection from "./components/home/FeaturesSection";
-import TargetCursorSection from "./components/home/TargetCursorSection";
 import AnalyticsSection from "./components/home/AnalyticsSection";
 import WorkFollowsSection from "./components/home/WorkFollowsSection";
 import ActionsSection from "./components/home/ActionsSection";
@@ -44,7 +43,6 @@ const App = () => {
       <Hero />
       <DeckShowcaseSection />
       <FeaturesSection />
-      <TargetCursorSection />
       <AnalyticsSection />
       <WorkFollowsSection />
       <ActionsSection />
