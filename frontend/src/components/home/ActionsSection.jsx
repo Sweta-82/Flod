@@ -1,4 +1,5 @@
 import { Upload, Plus, Play, Users } from "lucide-react";
+import { AnimatedItem } from "../ui/AnimatedList";
 
 const actions = [
   {
@@ -33,17 +34,18 @@ const ActionsSection = () => {
           {actions.map((action, idx) => {
             const Icon = action.icon;
             return (
-              <button
-                key={idx}
-                className="p-6 rounded-3xl bg-surface border border-border/80 hover:border-primary/50 hover:shadow-md transition flex flex-col items-center justify-center gap-3 cursor-pointer group"
-              >
-                <div className="h-10 w-10 rounded-2xl bg-primary/10 text-primary flex items-center justify-center group-hover:bg-primary group-hover:text-white transition">
-                  <Icon className="h-5 w-5" />
-                </div>
-                <span className="font-primary text-sm font-semibold text-foreground">
-                  {action.label}
-                </span>
-              </button>
+              <AnimatedItem key={idx} index={idx} delay={idx * 0.06} className="mb-0">
+                <button
+                  className="w-full p-6 rounded-3xl bg-surface border border-border/80 hover:border-primary/50 hover:shadow-md transition flex flex-col items-center justify-center gap-3 cursor-pointer group"
+                >
+                  <div className="h-10 w-10 rounded-2xl bg-primary/10 text-primary flex items-center justify-center group-hover:bg-primary group-hover:text-white transition">
+                    <Icon className="h-5 w-5" />
+                  </div>
+                  <span className="font-primary text-sm font-semibold text-foreground">
+                    {action.label}
+                  </span>
+                </button>
+              </AnimatedItem>
             );
           })}
         </div>

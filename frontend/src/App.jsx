@@ -1,6 +1,7 @@
 import { useLayoutEffect, useState } from "react";
 import NavBar from "./components/layout/NavBar";
 import Hero from "./components/home/Hero";
+import ScrollStorySection from "./components/home/ScrollStorySection";
 import DeckShowcaseSection from "./components/home/DeckShowcaseSection";
 import FeaturesSection from "./components/home/FeaturesSection";
 import AnalyticsSection from "./components/home/AnalyticsSection";
@@ -41,6 +42,7 @@ const App = () => {
       />
       <NavBar mode={mode} setMode={setMode} />
       <Hero />
+      <ScrollStorySection />
       <DeckShowcaseSection />
       <FeaturesSection />
       <AnalyticsSection />

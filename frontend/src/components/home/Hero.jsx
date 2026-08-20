@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { Zap, ArrowDown, Layers, Sparkles, Users, Presentation, Move } from "lucide-react";
 import { FlipButton } from "../ui/btn";
 import Aurora from "../ui/Aurora";
+import RotatingText from "../ui/RotatingText";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -73,12 +74,9 @@ const Hero = () => {
       tl.to(
         topDivRef.current,
         {
-          scaleX: 0.002, // collapses width to a thin single line
-          scaleY: 0.65,  // vertical divider height
-          rotation: 0,
-          borderRadius: "999px",
-          boxShadow: "0 0 25px rgba(160, 48, 122, 0.9)",
-          opacity: 0.85,
+          scaleX: 0,
+          scaleY: 0,
+          opacity: 0,
           pointerEvents: "none",
           ease: "power2.inOut",
           duration: 0.5,
@@ -116,11 +114,28 @@ const Hero = () => {
             ref={innerContentRef}
             className="relative z-10 flex flex-col items-center justify-between h-full w-full max-w-6xl mx-auto py-2 space-y-4 md:space-y-0"
           >
-            {/* Top Tagline */}
-            <div className="flex items-center gap-2 text-white/80 font-mono text-[10px] sm:text-xs uppercase tracking-widest font-semibold">
-              <span>SAN FRANCISCO, CA</span>
-              <span>•</span>
-              <span>EST. 2026</span>
+            {/* Top Tagline with Rotating Text */}
+            <div className="flex items-center justify-center text-white/90 font-mono text-xs sm:text-sm uppercase tracking-widest font-semibold my-1">
+              <RotatingText
+                texts={[
+                  'SAN FRANCISCO, CA ✦ EST. 2026',
+                  'AI PRESENTATIONS ✦ REAL-TIME SYNC',
+                  'FLUID WORKSPACES ✦ ZERO LATENCY',
+                  'PRESENTATION ✦ COLLABORATION ✦ AI'
+                ]}
+                mainClassName="px-3.5 py-1 bg-white/10 backdrop-blur-md rounded-full border border-white/20 text-white overflow-hidden justify-center shadow-sm"
+                staggerFrom="last"
+                initial={{ y: "100%", opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                exit={{ y: "-120%", opacity: 0 }}
+                staggerDuration={0.02}
+                splitLevelClassName="overflow-hidden pb-0.5"
+                transition={{ type: "spring", damping: 30, stiffness: 400 }}
+                rotationInterval={2500}
+                splitBy="characters"
+                auto
+                loop
+              />
             </div>
 
             {/* Top Main Title: FLOD */}

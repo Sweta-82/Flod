@@ -1,4 +1,5 @@
 import { Upload, Wand2, Users, MousePointer, MessageSquare, ShieldCheck } from "lucide-react";
+import { AnimatedItem } from "../ui/AnimatedList";
 
 const features = [
   {
@@ -48,28 +49,27 @@ const FeaturesSection = () => {
           </p>
         </div>
 
-        {/* 6 Feature Grid Cards */}
+        {/* 6 Feature Grid Cards animated with AnimatedItem */}
         <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-6">
           {features.map((item, idx) => {
             const Icon = item.icon;
             return (
-              <div
-                key={idx}
-                className="cursor-target p-6 md:p-8 rounded-3xl bg-surface border border-border/80 hover:border-primary/40 transition shadow-sm space-y-4 flex flex-col justify-between"
-              >
-                <div className="h-10 w-10 rounded-2xl bg-primary/10 text-primary flex items-center justify-center shrink-0">
-                  <Icon className="h-5 w-5" />
+              <AnimatedItem key={idx} index={idx} delay={idx * 0.08} className="mb-0 h-full">
+                <div className="cursor-target h-full p-6 md:p-8 rounded-3xl bg-surface border border-border/80 hover:border-primary/40 transition shadow-sm space-y-4 flex flex-col justify-between">
+                  <div className="h-10 w-10 rounded-2xl bg-primary/10 text-primary flex items-center justify-center shrink-0">
+                    <Icon className="h-5 w-5" />
+                  </div>
+                  
+                  <div className="space-y-2">
+                    <h3 className="font-primary text-lg md:text-xl font-bold tracking-tight text-foreground">
+                      {item.title}
+                    </h3>
+                    <p className="text-muted text-xs md:text-sm font-medium leading-relaxed">
+                      {item.description}
+                    </p>
+                  </div>
                 </div>
-                
-                <div className="space-y-2">
-                  <h3 className="font-primary text-lg md:text-xl font-bold tracking-tight text-foreground">
-                    {item.title}
-                  </h3>
-                  <p className="text-muted text-xs md:text-sm font-medium leading-relaxed">
-                    {item.description}
-                  </p>
-                </div>
-              </div>
+              </AnimatedItem>
             );
           })}
         </div>
