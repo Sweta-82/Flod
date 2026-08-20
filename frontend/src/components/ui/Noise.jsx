@@ -18,13 +18,10 @@ const Noise = ({
     let animationId;
     const canvasSize = 1024;
 
-    const resize = () => {
+    const setupCanvas = () => {
       if (!canvas) return;
       canvas.width = canvasSize;
       canvas.height = canvasSize;
-
-      canvas.style.width = "100vw";
-      canvas.style.height = "100vh";
     };
 
     const drawGrain = () => {
@@ -57,12 +54,10 @@ const Noise = ({
       animationId = window.requestAnimationFrame(loop);
     };
 
-    window.addEventListener("resize", resize);
-    resize();
+    setupCanvas();
     loop();
 
     return () => {
-      window.removeEventListener("resize", resize);
       window.cancelAnimationFrame(animationId);
     };
   }, [mode, patternRefreshInterval, patternAlpha]);

@@ -59,7 +59,7 @@ const DeckShowcaseSection = () => {
             <div className="absolute bottom-4 left-6 right-6 flex items-center justify-between text-xs text-muted font-mono">
               <span className="flex items-center gap-1.5">
                 <Eye className="h-3.5 w-3.5" />
-                <span>128 views</span>
+                <span>Live Deck View</span>
               </span>
               <span className="flex items-center gap-1.5">
                 <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />

@@ -29,7 +29,7 @@ const App = () => {
   }, [mode]);
 
   return (
-    <div className="min-h-screen bg-background text-foreground transition-colors duration-300 relative">
+    <div className="min-h-screen w-full bg-background text-foreground transition-colors duration-300 relative">
       <Noise mode={mode} patternAlpha={15} patternRefreshInterval={3} />
       <TargetCursor 
         spinDuration={2}

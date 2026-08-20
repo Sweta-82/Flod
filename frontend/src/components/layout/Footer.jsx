@@ -44,7 +44,7 @@ const Footer = () => {
       </div>
 
       {/* Bottom Copyright */}
-      <div className="max-w-6xl mx-auto pt-12 mt-12 border-t border-border/60 flex items-center justify-between text-[11px] font-mono text-muted">
+      <div className="max-w-6xl mx-auto pt-12 mt-12 border-t border-border/60 flex flex-col sm:flex-row items-center justify-between gap-2 text-[11px] font-mono text-muted text-center sm:text-left">
         <span>© {new Date().getFullYear()} Flod Inc. All rights reserved.</span>
         <span>Built for velocity</span>
       </div>

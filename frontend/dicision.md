@@ -1,83 +1,60 @@
 # FLOD — Design Decisions
 
-## 1. Product Direction
+## 1. Why this ingestion strategy over the obvious alternative?
 
-FLOD is a **product homepage**, not a traditional marketing landing page. It combines two core workflows:
+I chose an **upload-first workflow for PPT/PPTX and PDF files** because it matches FLOD's primary use case: a user should be able to bring an existing presentation into FLOD and immediately present, enhance, share, or collaborate on it.
 
-- **Present Anywhere:** upload PPT/PPTX or PDF files, present from anywhere, use AI for summaries, speaker notes and questions, share through short/custom links, and track views and engagement.
-- **Collaborate Live:** multiple people can work in the same workspace in real time, with no refresh, live cursors, presence states, comments, permissions, activity history and cross-device access.
+The obvious alternative was a **workspace-first experience**, where users create a workspace before uploading or presenting anything. I rejected this because it adds friction to the user's first action. FLOD should make the path from **“I have a presentation” → “I can use it here”** obvious within seconds.
 
-**Core positioning:** *Present anywhere. Work together, live.*
+The homepage therefore gives equal importance to two workflows:
 
-## 2. Homepage Structure
-
-The homepage stays concise and product-focused:
-
-1. **Hero / Home Overview** — clear value proposition and primary action.
-2. **Presentation Experience** — actual UI showing upload, presentation, AI, sharing and tracking.
-3. **Real-Time Collaboration** — live cursors, presence, editing and comments.
-4. **Activity / Insights** — recent work, views, engagement and team activity.
-5. **Quick Actions** — Upload Presentation, Create Workspace and Join Workspace.
-
-The first viewport prioritizes the actual product interface rather than decorative marketing graphics.
-
-## 3. Visual Design
-
-The visual system uses a mostly monochrome foundation with a restrained accent color to create a premium, focused interface.
-
-**Light mode:** warm off-white background, white surfaces, near-black text and deep navy accent.
-
-**Dark mode:** near-black background, dark elevated surfaces, off-white text and muted blue accent.
-
-A distinctive display font is used for major headings, paired with a highly readable UI font for product controls and body copy. Monospace styling is reserved for URLs, timestamps and technical metadata.
-
-## 4. Interaction & Motion
-
-Motion is purposeful rather than decorative. The main interaction communicates the product workflow:
-
-**Upload → AI → Present → Share → Collaborate**
-
-Subtle live cursor movement, presence indicators, comment appearance, synchronization states and card hover states make the interface feel alive without overwhelming the user.
-
-## 5. Content Decisions
-
-Copy is direct and product-focused. No fabricated testimonials, customer logos or user statistics are used.
-
-The two primary messages are:
-
-> **Make your slides speak.**
+**Upload → AI → Present → Share → Track**
 
 and
 
-> **Make your team move.**
+**Workspace → Collaborate → Comment → Sync**
 
-The first communicates the AI-powered presentation workflow; the second communicates real-time collaboration.
+This keeps FLOD from feeling like only a presentation-sharing tool or another generic collaboration workspace.
 
-## 6. Responsive & Accessibility Decisions
+---
 
-The design targets **390px mobile** and **1440px desktop** with no horizontal scrolling.
+## 2. One trade-off made under the time limit
 
-On mobile, presentation and collaboration experiences become stacked or tabbed, cards use single-column layouts, and actions remain touch-friendly.
+The main trade-off was **prioritizing the product experience and visual interaction over fully implementing the underlying backend**.
 
-Light and dark modes are designed as complete themes rather than simple color inversions, with readable contrast and distinguishable surfaces.
+For this prototype, AI summaries, speaker notes, generated questions, analytics, live cursors, presence states, and collaboration activity are represented through realistic product UI rather than a complete production implementation.
 
-## 7. Deliberately Avoided
+With a real week, I would implement the complete PPT/PDF ingestion pipeline, persistent workspaces, authentication, permissions, real-time synchronization, AI processing, custom share-link generation, and presentation analytics.
 
-- Fake testimonials
-- Fake customer logos
-- Fabricated user counts
-- Fake awards or trust badges
-- Unverifiable performance claims
-- Excessive animations
-- Unnecessary pricing/marketing sections
-- Feature overload
+I would also test the product with real users and iterate based on their feedback to identify where the workflow or interface creates friction.
 
-The priority is **product clarity, visual taste, interaction quality and a strong first impression**.
+---
 
-## 8. Success Criteria
+## 3. Where did you use AI tools, and what did you personally verify or change afterward?
 
-A first-time visitor should understand within a few seconds that FLOD lets them **upload and present content, make it smarter with AI, share it, track engagement, and work on it live with their team.**
+I used AI tools mainly to **reduce the time spent on exploration and iteration**. Good UI design requires time to explore different layouts, visual directions, typography, content hierarchy, and interactions before arriving at a strong solution. While the creative and product decisions still require human judgment, AI helped me explore these possibilities faster.
 
-The intended reaction:
+I used **Stitch** to generate and compare initial UI directions and **ChatGPT** to brainstorm the product structure, content, feature hierarchy, and interaction ideas. This allowed me to spend more time thinking about the actual user experience instead of manually exploring every initial possibility from scratch.
 
-> **“I understand what this is, and I want to try it.”**
+However, I did not treat the AI output as the final design. I personally reviewed the generated concepts and changed the direction when the interface became too focused on generic team collaboration.
+
+I refined the homepage to clearly communicate FLOD's two core workflows:
+
+- **Present Anywhere:** Upload PPT/PDF → AI assistance → Present → Share → Track.
+- **Collaborate Live:** Real-time editing → Live cursors → Presence → Comments → Permissions.
+
+I also personally verified and refined the **visual hierarchy, content, typography, responsive behavior, light/dark mode, CTA placement, and animation choices** to ensure the interface remained clear rather than visually overloaded.
+
+AI acted as an **accelerator for exploration**, while the final product direction and design decisions remained based on my own judgment and the assignment requirements.
+
+---
+
+## Final Design Principle
+
+FLOD is built around a simple idea:
+
+> **Present anywhere. Work together, live.**
+
+The homepage prioritizes the actual product experience over fabricated social proof or excessive marketing content.
+
+The goal is for a first-time visitor to understand both workflows within a few seconds and immediately see why they would want to use FLOD.
