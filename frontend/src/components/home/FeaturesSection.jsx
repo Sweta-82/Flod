@@ -42,7 +42,7 @@ const FeaturesSection = () => {
         {/* Header */}
         <div className="text-center space-y-3 max-w-2xl mx-auto">
           <h2 className="font-primary text-3xl sm:text-4xl md:text-5xl font-black tracking-tight text-foreground">
-            One workspace. Every part of the work.
+            One <span className="text-primary bg-gradient-to-r from-purple-400 via-primary to-pink-500 bg-clip-text text-transparent">workspace</span>. Every part of the work.
           </h2>
           <p className="text-muted text-sm md:text-base font-medium leading-relaxed">
             Not a viewer plus a chat tool bolted together — one surface your deck and your team both live in.

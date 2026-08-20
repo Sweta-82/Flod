@@ -151,7 +151,7 @@ const Hero = () => {
                 fillDelay={0.15}
                 stagger={0.08}
                 ease="power2.out"
-                trigger="mount"
+                trigger="loop"
                 fillMode="wipe"
                 fontSize={120}
                 fontWeight={900}

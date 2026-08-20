@@ -132,7 +132,8 @@ const StrokeText = ({
       const tl = gsap.timeline({
         paused: true,
         repeat: trigger === 'loop' ? -1 : 0,
-        repeatDelay: trigger === 'loop' ? 0.9 : 0,
+        repeatDelay: trigger === 'loop' ? 0.5 : 0,
+        yoyo: trigger === 'loop',
         defaults: { overwrite: 'auto' }
       });
 

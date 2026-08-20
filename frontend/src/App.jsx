@@ -7,6 +7,7 @@ import FeaturesSection from "./components/home/FeaturesSection";
 import AnalyticsSection from "./components/home/AnalyticsSection";
 import WorkFollowsSection from "./components/home/WorkFollowsSection";
 import ActionsSection from "./components/home/ActionsSection";
+import ScrollVelocitySection from "./components/home/ScrollVelocitySection";
 import Footer from "./components/layout/Footer";
 import TargetCursor from "./components/ui/TargetCursor";
 import Noise from "./components/ui/Noise";
@@ -48,6 +49,7 @@ const App = () => {
       <AnalyticsSection />
       <WorkFollowsSection />
       <ActionsSection />
+      <ScrollVelocitySection />
       <Footer />
     </div>
   );
